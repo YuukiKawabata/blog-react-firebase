@@ -11,30 +11,34 @@ import {
 const Navbar = ({ isAuth }) => {
   return (
     <nav>
-        
-       {!isAuth ? 
+
+       {!isAuth ? (
        <Link to="/login">
          <FontAwesomeIcon icon={faArrowRightToBracket} />
          ログイン
        </Link> 
-       :  
-       <>   
-       <Link to="/">
+        ) : ( 
+      <>   
+
+
+      <Link to="/">
         <FontAwesomeIcon icon={faHouse} />
         ホーム
        </Link>
+
+        
+       <Link to="/logout">
+           <FontAwesomeIcon icon={faArrowRightToBracket} />
+          ログアウト
+          </Link>
 
        <Link to="/createPost">
           <FontAwesomeIcon icon={faFilePen} />
           記事投稿
         </Link>
-       
-        <Link to="/logout">
-           <FontAwesomeIcon icon={faArrowRightToBracket} />
-          ログアウト
-          </Link>
-        </>
-       }    
+      
+      </>
+        )}    
     </nav>
   );
 };

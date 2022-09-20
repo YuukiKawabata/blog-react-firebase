@@ -1,8 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route,  } from "react-router-dom"
+import Login from './components/Login';
 import Home from './components/Home';
 import CreatePost from './components/CreatePost';
-import Login from './components/Login';
 import Logout from './components/Logout';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
@@ -16,13 +16,13 @@ function App() {
       <Navbar isAuth={isAuth} />
       <Routes>
         <Route path='/login' element={<Login setIsAuth={setIsAuth} />}></Route>
-        
-        <Route path='/' element={<Home setIsAuth={setIsAuth} />}></Route>
-        <Route path='/createpost' element={<CreatePost />}></Route>
+        <Route path='/createpost' element={<CreatePost isAuth={isAuth} />}></Route>
         <Route path='/logout' element={<Logout setIsAuth={setIsAuth} />}></Route>
+        <Route path='/' element={<Home setIsAuth={setIsAuth} />}></Route>
       </Routes>
     </Router>
   );
 }
 
 export default App;
+

@@ -6,7 +6,7 @@ import "./Home.css";
 
 
 
-const Home = () => {
+const Home = ({ setIsAuth }) => {
   const [postlist, setpostlist] = useState([]);
 
   useEffect(() => {
