@@ -15,10 +15,15 @@ function App() {
     <Router>
       <Navbar isAuth={isAuth} />
       <Routes>
-        <Route path='/login' element={<Login setIsAuth={setIsAuth} />}></Route>
+        {!isAuth ? (
+          <Route path='/login' element={<Login setIsAuth={setIsAuth} />}></Route>
+        ) : (
+        <>
         <Route path='/createpost' element={<CreatePost isAuth={isAuth} />}></Route>
         <Route path='/logout' element={<Logout setIsAuth={setIsAuth} />}></Route>
-        <Route path='/' element={<Home setIsAuth={setIsAuth} />}></Route>
+        <Route path='' element={<Home setIsAuth={setIsAuth} />}></Route>
+        </>
+        )}
       </Routes>
     </Router>
   );
